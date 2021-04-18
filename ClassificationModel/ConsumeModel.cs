@@ -5,37 +5,33 @@
 //*****************************************************************************************
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
 using Microsoft.ML;
-using SampleClassification.Model;
 
-namespace SampleClassification.Model
+namespace ClassificationModel
 {
     public class ConsumeModel
     {
-        private static Lazy<PredictionEngine<ModelInput, ModelOutput>> PredictionEngine = new Lazy<PredictionEngine<ModelInput, ModelOutput>>(CreatePredictionEngine);
+        private static Lazy<PredictionEngine<ClassificationModelInput, ClassificationModelOutput>> PredictionEngine = new Lazy<PredictionEngine<ClassificationModelInput, ClassificationModelOutput>>(CreatePredictionEngine);
 
-        public static string MLNetModelPath = Path.GetFullPath("SampleClassification\\SampleClassification.Model\\MLModel.zip");
+        public static string MLNetModelPath = Path.GetFullPath("ClassificationModel\\MLModel.zip");
 
         // For more info on consuming ML.NET models, visit https://aka.ms/mlnet-consume
         // Method for consuming model in your app
-        public static ModelOutput Predict(ModelInput input)
+        public static ClassificationModelOutput Predict(ClassificationModelInput input)
         {
-            ModelOutput result = PredictionEngine.Value.Predict(input);
+            ClassificationModelOutput result = PredictionEngine.Value.Predict(input);
             return result;
         }
 
-        public static PredictionEngine<ModelInput, ModelOutput> CreatePredictionEngine()
+        public static PredictionEngine<ClassificationModelInput, ClassificationModelOutput> CreatePredictionEngine()
         {
             // Create new MLContext
             MLContext mlContext = new MLContext();
 
             // Load model & create prediction engine
-            ITransformer mlModel = mlContext.Model.Load(MLNetModelPath, out var modelInputSchema);
-            var predEngine = mlContext.Model.CreatePredictionEngine<ModelInput, ModelOutput>(mlModel);
+            ITransformer mlModel = mlContext.Model.Load(MLNetModelPath, out var ClassificationModelInputSchema);
+            var predEngine = mlContext.Model.CreatePredictionEngine<ClassificationModelInput, ClassificationModelOutput>(mlModel);
 
             return predEngine;
         }

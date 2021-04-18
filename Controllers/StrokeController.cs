@@ -25,8 +25,8 @@ namespace ClassificationAppBackend.Controllers
         [Route("predict")]
         public ActionResult<PredictionModel> GetPredictionResult(StrokePredictionDTO strokePredictionDTO)
         {
-          //  var strokePredictionModel = _mapper.Map<StrokePredictionModel>(strokePredictionDTO);
-            var predictionResult = _repoStroke.Predict(new StrokePredictionModel());
+            var strokePredictionModel = _mapper.Map<StrokePredictionModel>(strokePredictionDTO);
+            var predictionResult = _repoStroke.Predict(strokePredictionModel);
             return Ok(predictionResult);
         }
     }

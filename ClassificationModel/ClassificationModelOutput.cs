@@ -7,9 +7,9 @@
 using System;
 using Microsoft.ML.Data;
 
-namespace SampleClassification.Model
+namespace ClassificationModel
 {
-    public class ModelOutput
+    public class ClassificationModelOutput
     {
         // ColumnName attribute is used to change the column name from
         // its default value, which is the name of the field.

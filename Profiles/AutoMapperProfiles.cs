@@ -2,6 +2,7 @@ using AutoMapper;
 using ClassificationAppBackend.Models;
 using ClassificationAppBackend.DTO;
 using ClassificationAppBackend.Models.Diseases.Stroke;
+using ClassificationModel;
 
 namespace ClassificationAppBackend.Profiles
 {
@@ -11,6 +12,7 @@ namespace ClassificationAppBackend.Profiles
         {
             CreateMap<PatientDTO,PatientModel>();
             CreateMap<StrokePredictionDTO,StrokePredictionModel>();
+            CreateMap<StrokePredictionModel,ClassificationModelInput>();
         }
     }
 }

@@ -21,7 +21,7 @@
   </ItemGroup>
 
    <ItemGroup>
-    <None Update="SampleClassification\SampleClassification.Model\MLModel.zip">
+    <None Update="ClassificationModel\MLModel.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

@@ -6,9 +6,9 @@
 
 using Microsoft.ML.Data;
 
-namespace SampleClassification.Model
+namespace ClassificationModel
 {
-    public class ModelInput
+    public class ClassificationModelInput
     {
         [ColumnName("Gender"), LoadColumn(0)]
         public string Gender { get; set; }
