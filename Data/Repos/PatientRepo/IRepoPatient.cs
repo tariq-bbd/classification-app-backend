@@ -1,11 +1,12 @@
 using ClassificationAppBackend.Models;
 
-namespace ClassificationAppBackend.Data
+namespace ClassificationAppBackend.Data.Repos.PatientRepo
 {
-    public interface IPatientRepo
+    public interface IRepoPatient
     {
         //Saves the prediction to the Data Source
-         bool SavePrediction();
          PatientModel GetPatient(int id);
+         bool AddPatient(PatientModel patient);
+
     }
 }

@@ -1,4 +1,6 @@
-using ClassificationAppBackend.Data;
+using AutoMapper;
+using ClassificationAppBackend.Data.Repos.PatientRepo;
+using ClassificationAppBackend.DTO;
 using ClassificationAppBackend.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,15 +10,17 @@ namespace ClassificationAppBackend.Controllers
     [Route("api/patients")]
     public class PatientController : ControllerBase
     {
-        private readonly IPatientRepo _patientRepo;
+        private readonly IRepoPatient _patientRepo;
+        private readonly IMapper _mapper;
 
-        public PatientController(IPatientRepo patientRepo)
+        public PatientController(IMapper mapper,IRepoPatient patientRepo)
         {
             _patientRepo = patientRepo;
+            _mapper = mapper;
         }
 
 
-        [HttpGet]
+        [HttpGet(Name="GetPatientById")]
         [Route("{id}")]
         public ActionResult<PatientModel> GetPatientById(int id)
         {
@@ -28,6 +32,16 @@ namespace ClassificationAppBackend.Controllers
             }
             return patient;
 
+        }
+
+        [HttpPost]
+        public ActionResult PostPatient(PatientDTO patientDTO)
+        {
+            var patient = _mapper.Map<PatientModel>(patientDTO);
+            
+            _patientRepo.AddPatient(patient);
+
+            return CreatedAtRoute(nameof(GetPatientById),new {Id = patient.Id},patient);
         }
     }
 }

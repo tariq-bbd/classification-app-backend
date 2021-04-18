@@ -12,6 +12,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Data.SqlClient;
+using ClassificationAppBackend.Data.Repos.PatientRepo;
+using ClassificationAppBackend.Data.Repos.StrokeRepo;
 
 namespace ClassificationAppBackend
 {
@@ -27,13 +31,25 @@ namespace ClassificationAppBackend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IPatientRepo,MockPatientRepo>();
+            services.AddScoped<IRepoPatient,DbRepoPatient>();
+            services.AddScoped<IRepoStroke,DbRepoStroke>();
 
+            services.AddDbContext<ClassifcatiionAppDbContext>(options =>
+            {
+                var builder = new SqlConnectionStringBuilder();
+                builder.DataSource = Configuration["DB-DataSource"];
+                builder.UserID =  "bbdazuresqlserveradmin";//Configuration["DB-UserID"];
+                builder.Password = "@DmB69SSXeWfge";//Configuration["DB-Password"];
+                builder.InitialCatalog = Configuration["DB-Classification-InitialCatalog"];
+                options.UseSqlServer(builder.ConnectionString);
+            });
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ClassificationAppBackend", Version = "v1" });
             });
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
