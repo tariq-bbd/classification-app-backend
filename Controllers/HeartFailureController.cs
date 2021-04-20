@@ -11,7 +11,7 @@ namespace ClassificationAppBackend.Controllers
     [Route("api/diseases/heart_failure")]
     public class HeartFailureController : ControllerBase
     {
-        private readonly IHeartFailure _repoHeartFailure;
+        private readonly IRepoHeartFailure _repoHeartFailure;
         private readonly IMapper _mapper;
 
         public HeartFailureController(IRepoHeartFailure repoHeartFailure, IMapper mapper )
