@@ -1,34 +1,35 @@
 
 using AutoMapper;
 using ClassificationAppBackend.Models;
-using ClassificationAppBackend.Models.Diseases.Stroke;
+using ClassificationAppBackend.Models.Diseases.HeartFailure;
 using ClassificationModel;
 
-namespace ClassificationAppBackend.Data.Repos.StrokeRepo
+namespace ClassificationAppBackend.Data.Repos.HeartFailureRepo
 {
-    public class DbRepoStroke : IRepoStroke
+    public class DbRepoHeartFailure : IRepoHeartFailure
     {
         private readonly IMapper _mapper;
 
-        public DbRepoStroke(IMapper mapper)
+        public DbRepoHeartFailure(IMapper mapper)
         {
             _mapper = mapper;
         }
-        public PredictionModel Predict(StrokePredictionModel strokePredictionModel)
+        public PredictionModel Predict(HeartFailurePredictionModel heartFailurePredictionModel)
         {
             ClassificationModelInput modelInput = new ClassificationModelInput
             {
-                Age = strokePredictionModel.Age,
-                AverageGlucoseLevel = (float)strokePredictionModel.AverageGlucoseLevel,
-                BMI = (float)strokePredictionModel.BMI,
-                EverMarried = strokePredictionModel.EverMarried == "Yes" ? true : false,
-                Gender = strokePredictionModel.Gender,
-                HasHeartDisease = strokePredictionModel.HasHeartDisease,
-                HasHypertension = strokePredictionModel.HasHeartDisease,
-                ResidenceType = strokePredictionModel.ResidenceType,
-                SmokingStatus = strokePredictionModel.SmokingStatus,
-                WorkType = strokePredictionModel.WorkType
-
+                Age = heartFailurePredictionModel.Age,
+                Anaemia = heartFailurePredictionModel.Anaemia,
+                CreatininePhosphokinase = heartFailurePredictionModel.CreatininePhosphokinase,
+                Diabetes = heartFailurePredictionModel.Diabetes,
+                EjectionFraction = heartFailurePredictionModel.EjectionFraction,
+                HighBloodPressure = heartFailurePredictionModel.HighBloodPressure,
+                Platelets = heartFailurePredictionModel.Platelets,
+                SerumCreatinine = heartFailurePredictionModel.SerumCreatinine,
+                SerumSodium = heartFailurePredictionModel.SerumSodium,
+                Sex = heartFailurePredictionModel.Sex,
+                Smoking = heartFailurePredictionModel.Smoking,
+                Time = heartFailurePredictionModel.Time,
             };
 
             var prediction = ConsumeModel.Predict(modelInput);

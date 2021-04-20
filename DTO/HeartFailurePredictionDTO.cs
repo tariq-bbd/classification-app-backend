@@ -27,7 +27,5 @@ namespace ClassificationAppBackend.DTO
         public bool Smoking { get; set; }
         [Required]
         public int Time { get; set; }
-        [Required]
-        public bool DeathEvent { get; set; }
     }
 }
