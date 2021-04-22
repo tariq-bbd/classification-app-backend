@@ -6,7 +6,7 @@
 
 using Microsoft.ML.Data;
 
-namespace ClassificationModel
+namespace ClassificationModel.Stroke
 {
     public class ClassificationModelInput
     {

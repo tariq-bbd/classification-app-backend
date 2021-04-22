@@ -21,7 +21,12 @@
   </ItemGroup>
 
    <ItemGroup>
-    <None Update="ClassificationModel\MLModel.zip">
+    <None Update="ClassificationModel\Stroke\MLModel.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="ClassificationModel\HeartFailure\MLModel.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

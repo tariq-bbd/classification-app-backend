@@ -4,28 +4,34 @@ namespace ClassificationAppBackend.DTO
 {
     public class HeartFailurePredictionDTO
     {
-        public int Age { get; set; }
         [Required]
-        public bool Anaemia { get; set; }
+        public float Age { get; set; }
         [Required]
-        public int CreatininePhosphokinase { get; set; }
+        [MaxLength(250)]
+        public string Sex { get; set; }
         [Required]
-        public bool Diabetes { get; set; }
+        public float Chest_pain_type { get; set; }
         [Required]
-        public int EjectionFraction { get; set; }
+        public float Resting_bp_s { get; set; }
         [Required]
-        public bool HighBloodPressure { get; set; }
+        public float Cholesterol { get; set; }
         [Required]
-        public int Platelets { get; set; }
+        [MaxLength(250)]
+        public string Fasting_blood_sugar { get; set; }
         [Required]
-        public float SerumCreatinine { get; set; }
+        [MaxLength(250)]
+        public string Resting_ecg { get; set; }
         [Required]
-        public int SerumSodium { get; set; }
+        public float Max_heart_rate { get; set; }
         [Required]
-        public int Sex { get; set; }
+        [MaxLength(250)]
+        public string Exercise_angina { get; set; }
         [Required]
-        public bool Smoking { get; set; }
+        public float Oldpeak { get; set; }
         [Required]
-        public int Time { get; set; }
+        public float ST_slope { get; set; }
+        [Required]
+        [MaxLength(250)]
+        public string Target { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 using AutoMapper;
 using ClassificationAppBackend.Models;
 using ClassificationAppBackend.Models.Diseases.Stroke;
-using ClassificationModel;
+using ClassificationModel.Stroke;
 
 namespace ClassificationAppBackend.Data.Repos.StrokeRepo
 {

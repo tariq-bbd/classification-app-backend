@@ -8,13 +8,13 @@ using System;
 using System.IO;
 using Microsoft.ML;
 
-namespace ClassificationModel
+namespace ClassificationModel.Stroke
 {
     public class ConsumeModel
     {
         private static Lazy<PredictionEngine<ClassificationModelInput, ClassificationModelOutput>> PredictionEngine = new Lazy<PredictionEngine<ClassificationModelInput, ClassificationModelOutput>>(CreatePredictionEngine);
 
-        public static string MLNetModelPath = Path.GetFullPath("ClassificationModel\\MLModel.zip");
+        public static string MLStrokeNetModelPath = Path.GetFullPath("ClassificationModel\\Stroke\\MLStrokeModel.zip");
 
         // For more info on consuming ML.NET models, visit https://aka.ms/mlnet-consume
         // Method for consuming model in your app
@@ -30,7 +30,7 @@ namespace ClassificationModel
             MLContext mlContext = new MLContext();
 
             // Load model & create prediction engine
-            ITransformer mlModel = mlContext.Model.Load(MLNetModelPath, out var ClassificationModelInputSchema);
+            ITransformer mlModel = mlContext.Model.Load(MLStrokeNetModelPath, out var ClassificationModelInputSchema);
             var predEngine = mlContext.Model.CreatePredictionEngine<ClassificationModelInput, ClassificationModelOutput>(mlModel);
 
             return predEngine;
