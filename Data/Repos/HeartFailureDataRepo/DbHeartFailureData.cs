@@ -1,13 +1,15 @@
+using ClassificationAppBackend.Models.Diseases.HeartFailure;
+
 namespace ClassificationAppBackend.Data.Repos.HeartFailureDataRepo {
     public class DbHeartFailureData: IRepoHeartFailureData {
         private readonly ClassificationAppDbContext _context;
 
-        public DbRepoHeartFailure(ClassificationAppDbContext context)
+        public DbHeartFailureData(ClassificationAppDbContext context)
         {
             _context = context;
         }
 
-        public IEnumerable<HeartFailureDataRepo> GetAll() {
+        public IEnumerator<HeartFailureDataModel> GetAll() {
             return _context.HeartFailureData.GetAll();
         }
 

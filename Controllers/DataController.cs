@@ -29,7 +29,7 @@ namespace ClassificationAppBackend.Controllers
 
         [HttpPost]
         [Route("add")]
-        public ActionResult<HeartFailureDataModel> AddHeartFailureData(HeartFailureData heartFailureData)
+        public ActionResult<HeartFailureDataModel> AddHeartFailureData(HeartFailureDataModel heartFailureData)
         {
             _repoHeartFailureData.Add(heartFailureData);
             return Ok(heartFailureData);
