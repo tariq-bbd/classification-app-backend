@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Dev\\ClassificationAppBackend\\ClassificationAppBackend.csproj": {}
+    "C:\\Users\\bbdnet2326.BBDNET\\Documents\\classification-app-backend\\ClassificationAppBackend.csproj": {}
   },
   "projects": {
-    "D:\\Dev\\ClassificationAppBackend\\ClassificationAppBackend.csproj": {
+    "C:\\Users\\bbdnet2326.BBDNET\\Documents\\classification-app-backend\\ClassificationAppBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Dev\\ClassificationAppBackend\\ClassificationAppBackend.csproj",
+        "projectUniqueName": "C:\\Users\\bbdnet2326.BBDNET\\Documents\\classification-app-backend\\ClassificationAppBackend.csproj",
         "projectName": "ClassificationAppBackend",
-        "projectPath": "D:\\Dev\\ClassificationAppBackend\\ClassificationAppBackend.csproj",
-        "packagesPath": "C:\\Users\\bbdnet2312\\.nuget\\packages\\",
-        "outputPath": "D:\\Dev\\ClassificationAppBackend\\obj\\",
+        "projectPath": "C:\\Users\\bbdnet2326.BBDNET\\Documents\\classification-app-backend\\ClassificationAppBackend.csproj",
+        "packagesPath": "C:\\Users\\bbdnet2326.BBDNET\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bbdnet2326.BBDNET\\Documents\\classification-app-backend\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\bbdnet2312\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\bbdnet2326.BBDNET\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,8 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Sandbox\\Discovery\\boa.services.errormonitor\\publish": {},
-          "C:\\Users\\bbdnet2312\\Documents\\BBD Config": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -75,6 +70,10 @@
               "target": "Package",
               "version": "[1.5.5, )"
             },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[*, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
@@ -98,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
