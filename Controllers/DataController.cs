@@ -1,3 +1,9 @@
+using AutoMapper;
+using ClassificationAppBackend.Data.Repos.PatientRepo;
+using ClassificationAppBackend.DTO;
+using ClassificationAppBackend.Models;
+using Microsoft.AspNetCore.Mvc;
+
 namespace ClassificationAppBackend.Controllers
 {
     [ApiController]
