@@ -29,7 +29,6 @@ namespace ClassificationAppBackend.Data.Repos.HeartFailureRepo
                 Exercise_angina = heartFailurePredictionModel.Exercise_angina,
                 Oldpeak = heartFailurePredictionModel.Oldpeak,
                 ST_slope = heartFailurePredictionModel.ST_slope,
-                Target = heartFailurePredictionModel.Target,
             };
 
             var prediction = ConsumeModel.Predict(modelInput);

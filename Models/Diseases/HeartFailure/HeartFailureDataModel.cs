@@ -5,6 +5,8 @@ namespace ClassificationAppBackend.Models.Diseases.HeartFailure
     public class HeartFailurePredictionModel
     {
         [Required]
+        public int id {}
+        [Required]
         public float Age { get; set; }
         [Required]
         [MaxLength(250)]
@@ -31,6 +33,7 @@ namespace ClassificationAppBackend.Models.Diseases.HeartFailure
         [Required]
         public float ST_slope { get; set; }
         [Required]
-        public int HeartFailurePredictionResult { get; set; }
+        [MaxLength(250)]
+        public string Target { get; set; }
     }
 }

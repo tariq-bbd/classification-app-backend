@@ -1,8 +1,13 @@
-using System.ComponentModel.DataAnnotations;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
-namespace ClassificationAppBackend.Models.Diseases.Stroke
+namespace SuggestMe.Models
 {
-    public class StrokePredictionModel
+    public class StrokeDataModel
     {
         [Required]
         public int Id { get; set; } //Patient ID
@@ -33,6 +38,6 @@ namespace ClassificationAppBackend.Models.Diseases.Stroke
         [MaxLength(250)]
         public string SmokingStatus { get; set; }
         [Required]
-        public int StrokePredictionResult { get; set; }
+        public int Target { get; set; }
     }
 }
