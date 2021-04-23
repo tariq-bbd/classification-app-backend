@@ -1,7 +1,7 @@
 using AutoMapper;
 using ClassificationAppBackend.Data.Repos.HeartFailureDataRepo;
 using ClassificationAppBackend.DTO;
-using ClassificationAppBackend.Models;
+using ClassificationAppBackend.Models.Diseases.HeartFailure;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClassificationAppBackend.Controllers
@@ -13,7 +13,7 @@ namespace ClassificationAppBackend.Controllers
         private readonly IRepoHeartFailureData _repoHeartFailureData;
         private readonly IMapper _mapper;
 
-        public HeartFailureController(IRepoHeartFailureData repoHeartFailureData, IMapper mapper )
+        public DataController(IRepoHeartFailureData repoHeartFailureData, IMapper mapper )
         {
             _repoHeartFailureData = repoHeartFailureData;
             _mapper = mapper;
@@ -22,17 +22,17 @@ namespace ClassificationAppBackend.Controllers
 
         [HttpGet]
         [Route("all")]
-        public ActionResult<HeartFailureData> GetAllHeartFailureData()
+        public ActionResult<HeartFailureDataModel> GetAllHeartFailureData()
         {
             return Ok(_repoHeartFailureData.GetAll());
         }
 
         [HttpPost]
         [Route("add")]
-        public ActionResult<HeartFailureData> AddHeartFailureData(HeartFailureData heartFailureData)
+        public ActionResult<HeartFailureDataModel> AddHeartFailureData(HeartFailureData heartFailureData)
         {
             _repoHeartFailureData.Add(heartFailureData);
-            return Ok();
+            return Ok(heartFailureData);
         }
     }
 }
