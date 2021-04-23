@@ -22,7 +22,7 @@
   </ItemGroup>
 
    <ItemGroup>
-    <None Update="ClassificationModel\Stroke\MLModel.zip">
+    <None Update="ClassificationModel\Stroke\MLStrokeModel.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
