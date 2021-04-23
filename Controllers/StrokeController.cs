@@ -21,7 +21,7 @@ namespace ClassificationAppBackend.Controllers
             
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("predict")]
         public ActionResult<PredictionModel> GetPredictionResult(StrokePredictionDTO strokePredictionDTO)
         {
