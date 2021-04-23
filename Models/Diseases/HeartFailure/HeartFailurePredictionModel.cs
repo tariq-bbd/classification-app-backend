@@ -5,6 +5,8 @@ namespace ClassificationAppBackend.Models.Diseases.HeartFailure
     public class HeartFailurePredictionModel
     {
         [Required]
+        public int Id { get; set; }
+        [Required]
         public float Age { get; set; }
         [Required]
         [MaxLength(250)]

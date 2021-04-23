@@ -3,14 +3,16 @@ using ClassificationAppBackend.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ClassificationAppBackend.Migrations
 {
     [DbContext(typeof(ClassifcatiionAppDbContext))]
-    partial class ClassifcatiionAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210423130655_AddedNewTablesMigration")]
+    partial class AddedNewTablesMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

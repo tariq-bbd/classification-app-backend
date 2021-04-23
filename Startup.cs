@@ -16,6 +16,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Data.SqlClient;
 using ClassificationAppBackend.Data.Repos.PatientRepo;
 using ClassificationAppBackend.Data.Repos.StrokeRepo;
+using ClassificationAppBackend.Data.Repos.HeartFailureRepo;
+using ClassificationAppBackend.Data.Repos.HeartFailureDataRepo;
 
 namespace ClassificationAppBackend
 {
@@ -33,6 +35,8 @@ namespace ClassificationAppBackend
         {
             services.AddScoped<IRepoPatient,DbRepoPatient>();
             services.AddScoped<IRepoStroke,DbRepoStroke>();
+            services.AddScoped<IRepoHeartFailure, DbRepoHeartFailure>();
+            services.AddScoped<IRepoHeartFailureData, DbHeartFailureData>();
 
             services.AddDbContext<ClassifcatiionAppDbContext>(options =>
             {
