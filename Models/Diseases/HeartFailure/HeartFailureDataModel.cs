@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ClassificationAppBackend.Models.Diseases.HeartFailure
 {
-    public class HeartFailurePredictionModel
+    public class HeartFailureDataModel
     {
         [Required]
         public int id {}

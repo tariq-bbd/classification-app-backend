@@ -1,5 +1,5 @@
 using AutoMapper;
-using ClassificationAppBackend.Data.Repos.PatientRepo;
+using ClassificationAppBackend.Data.Repos.HeartFailureDataRepo;
 using ClassificationAppBackend.DTO;
 using ClassificationAppBackend.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -29,7 +29,7 @@ namespace ClassificationAppBackend.Controllers
 
         [HttpPost]
         [Route("add")]
-        public ActionResult<> AddHeartFailureData(HeartFailurePredictionDTO heartFailurePredictionDTO)
+        public ActionResult AddHeartFailureData(HeartFailurePredictionDTO heartFailurePredictionDTO)
         {
             return Ok();
         }
