@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace ClassificationAppBackend.Models.Diseases.HeartFailure
+namespace ClassificationAppBackend.Models.Diseases.Stroke
 {
     public class StrokeDataModel
     {

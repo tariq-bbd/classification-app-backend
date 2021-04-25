@@ -15,7 +15,8 @@ namespace ClassificationAppBackend.Data
 
         public DbSet<PatientModel> Patients { get; set; }
         public DbSet<StrokePredictionModel> PredictionsStroke { get; set; }
-        public DbSet<HeartFailurePredictionModel> HeartFailure { get;  set;}
+        public DbSet<HeartFailurePredictionModel> PredictHeartFailure { get;  set;}
         public DbSet<HeartFailureDataModel> HeartFailureData { get;  set;}
+        public DbSet<StrokeDataModel> StrokeData { get;  set;}
     }
 }

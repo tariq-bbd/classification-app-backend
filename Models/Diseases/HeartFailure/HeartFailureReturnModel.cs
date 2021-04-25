@@ -23,5 +23,5 @@ namespace ClassificationAppBackend.Models.Diseases.HeartFailure
             this.ExcerciseEngina = excercise;
             this.HeartFailure = heart;
         }
-}
+    }
 }

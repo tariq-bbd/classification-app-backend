@@ -8,10 +8,10 @@ using ClassificationAppBackend.Data;
 
 namespace ClassificationAppBackend.Data.Repos.HeartFailureDataRepo
 {
-    public class DbHeartFailureData: IRepoHeartFailureData {
+    public class DbRepoHeartFailureData: IRepoHeartFailureData {
         private readonly ClassifcatiionAppDbContext _context;
 
-        public DbHeartFailureData(ClassifcatiionAppDbContext context)
+        public DbRepoHeartFailureData(ClassifcatiionAppDbContext context)
         {
             _context = context;
         }
@@ -28,7 +28,7 @@ namespace ClassificationAppBackend.Data.Repos.HeartFailureDataRepo
 
         public HeartFailureDataModel GetHeartFailureData(int id)
         {
-            return _context.HeartFailureData.FirstOrDefault(patient => patient.Id == id);
+            return _context.HeartFailureData.FirstOrDefault(heartFailureRec => heartFailureRec.Id == id);
             
         }
 
