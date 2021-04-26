@@ -16,6 +16,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Data.SqlClient;
 using ClassificationAppBackend.Data.Repos.PatientRepo;
 using ClassificationAppBackend.Data.Repos.StrokeRepo;
+using ClassificationAppBackend.Data.Repos.StrokeDataRepo;
 using ClassificationAppBackend.Data.Repos.HeartFailureRepo;
 using ClassificationAppBackend.Data.Repos.HeartFailureDataRepo;
 
