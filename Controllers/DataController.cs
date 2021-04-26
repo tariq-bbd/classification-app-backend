@@ -55,7 +55,7 @@ namespace ClassificationAppBackend.Controllers
             return Ok(res);
         }
 
-                [HttpGet]
+        [HttpGet]
         [Route("stroke/{bmi}")]
         public ActionResult<StrokeReturnModel> GetStatsForStroke(int bmi) {
             IEnumerable<StrokeDataModel> strokeData = (IEnumerable<StrokeDataModel>)_repoStrokeData.GetAll();
@@ -68,5 +68,20 @@ namespace ClassificationAppBackend.Controllers
             StrokeReturnModel res = new StrokeReturnModel(len, hypertension, heartDisease, highBMI, smokes, stroke);
             return Ok(res);
         }
+
+        [HttpGet]
+        [Route("records/stroke/{numOfRecords}")]
+        public ActionResult<StrokeDataModel> GetRecordsForStroke(int numOfRecords) {
+            IEnumerable<StrokeDataModel> strokeData = (IEnumerable<StrokeDataModel>)_repoStrokeData.GetAll();
+            return Ok(strokeData.OrderByDescending(o => o).Take(numOfRecords));
+        }
+
+        [HttpGet]
+        [Route("records/heartFailure/{numOfRecords}")]
+        public ActionResult<HeartFailureDataModel> GetRecordsForHeartFailure(int numOfRecords) {
+            IEnumerable<HeartFailureDataModel> heartFailureData = (IEnumerable<HeartFailureDataModel>)_repoHeartFailureData.GetAll();
+            return Ok(heartFailureData.OrderBy(o => o).Take(numOfRecords));
+        }
+
     }
 }
