@@ -47,24 +47,24 @@ namespace ClassificationAppBackend.Controllers
         public ActionResult<HeartFailureReturnModel> GetStatsForHeartFailure(int chest_pain_l, int cholestrol_l) {
             IEnumerable<HeartFailureDataModel> hearFailureData = (IEnumerable<HeartFailureDataModel>)_repoHeartFailureData.GetAll();
             int len = hearFailureData.Count();
-            int chest_pain = hearFailureData.Where(o => o.Chest_pain_type > chest_pain_l).Count();
+            int chest_pain = hearFailureData.Where(o => o.ChestPainType > chest_pain_l).Count();
             int cholestrol = hearFailureData.Where(o => o.Cholesterol > cholestrol_l).Count();
-            int exercise_engina = hearFailureData.Where(o => o.Exercise_angina == "").Count();
-            int heart_failure = hearFailureData.Where(o => o.Target == 1).Count();
+            int exercise_engina = hearFailureData.Where(o => o.ExerciseAngina == true).Count();
+            int heart_failure = hearFailureData.Where(o => o.Target == true).Count();
             HeartFailureReturnModel res = new HeartFailureReturnModel(len, chest_pain, cholestrol, exercise_engina, heart_failure);
             return Ok(res);
         }
 
         [HttpGet]
         [Route("stroke/{bmi}")]
-        public ActionResult<StrokeReturnModel> GetStatsForStroke(int bmi) {
+        public ActionResult<StrokeReturnModel> GetStatsForStroke(double bmi) {
             IEnumerable<StrokeDataModel> strokeData = (IEnumerable<StrokeDataModel>)_repoStrokeData.GetAll();
             int len = strokeData.Count();
-            int hypertension = strokeData.Where(o => o.HasHypertension == 1).Count();
-            int heartDisease = strokeData.Where(o => o.HasHeartDisease == 1).Count();
+            int hypertension = strokeData.Where(o => o.HasHypertension == true).Count();
+            int heartDisease = strokeData.Where(o => o.HasHeartDisease == true).Count();
             int highBMI = strokeData.Where(o => o.BMI >= bmi).Count();
-            int smokes = strokeData.Where(o => o.SmokingStatus == "1").Count();
-            int stroke = strokeData.Where(o => o.Target == 1).Count();
+            int smokes = strokeData.Where(o => o.SmokingStatus != "never smoked" || o.SmokingStatus != "Unknown" ).Count();
+            int stroke = strokeData.Where(o => o.Target == true).Count();
             StrokeReturnModel res = new StrokeReturnModel(len, hypertension, heartDisease, highBMI, smokes, stroke);
             return Ok(res);
         }

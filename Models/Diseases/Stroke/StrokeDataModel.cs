@@ -12,12 +12,11 @@ namespace ClassificationAppBackend.Models.Diseases.Stroke
         [Required]
         public int Age { get; set; }
         [Required]
-        public int HasHypertension { get; set; } // all with 1
+        public bool HasHypertension { get; set; } // all with 1
         [Required]
-        public int HasHeartDisease  { get; set; } // all with 1
+        public bool HasHeartDisease  { get; set; } // all with 1
         [Required]
-        [MaxLength(250)]
-        public string EverMarried { get; set; }
+        public bool EverMarried { get; set; }
         [Required]
         [MaxLength(250)]
         public string WorkType { get; set; }
@@ -25,7 +24,6 @@ namespace ClassificationAppBackend.Models.Diseases.Stroke
         [MaxLength(250)]
         public string ResidenceType { get; set; }
         [Required]
-        [MaxLength(250)]
         public double AverageGlucoseLevel { get; set; }
         [Required]
         public double BMI { get; set; } // all with bmi above x
@@ -33,6 +31,6 @@ namespace ClassificationAppBackend.Models.Diseases.Stroke
         [MaxLength(250)]
         public string SmokingStatus { get; set; } // all true
         [Required]
-        public int Target { get; set; } // all with 1
+        public bool Target { get; set; } // all with 1
     }
 }

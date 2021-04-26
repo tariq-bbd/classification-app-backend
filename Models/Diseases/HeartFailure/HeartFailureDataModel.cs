@@ -7,32 +7,29 @@ namespace ClassificationAppBackend.Models.Diseases.HeartFailure
         [Required]
         public int Id { get; set; }
         [Required]
-        public float Age { get; set; }
+        public int Age { get; set; }
         [Required]
         [MaxLength(250)]
         public string Sex { get; set; }
         [Required]
-        public float Chest_pain_type { get; set; } // above
+        public int ChestPainType { get; set; } // above
         [Required]
-        public float Resting_bp_s { get; set; }
+        public int RestingBpS { get; set; }
         [Required]
-        public float Cholesterol { get; set; } // Above x
+        public int Cholesterol { get; set; } // Above x
         [Required]
-        [MaxLength(250)]
-        public string Fasting_blood_sugar { get; set; }
+        public bool FastingBloodSugar { get; set; }
         [Required]
-        [MaxLength(250)]
-        public string Resting_ecg { get; set; }
+        public bool RestingEcg { get; set; }
         [Required]
-        public float Max_heart_rate { get; set; }
+        public int MaxHeartRate { get; set; }
         [Required]
-        [MaxLength(250)]
-        public string Exercise_angina { get; set; } // all with it
+        public bool ExerciseAngina { get; set; } // all with it
         [Required]
         public float Oldpeak { get; set; }
         [Required]
-        public float ST_slope { get; set; }
+        public int StSlope { get; set; }
         [Required]
-        public int Target { get; set; } // Select all with 1
+        public bool Target { get; set; } // Select all with 1
     }
 }
