@@ -46,13 +46,16 @@ namespace ClassificationAppBackend
                 builder.DataSource = Configuration["DB-DataSource"];
                 builder.UserID =  "bbdazuresqlserveradmin";//Configuration["DB-UserID"];
                 builder.Password = "@DmB69SSXeWfge";//Configuration["DB-Password"];
-                builder.InitialCatalog = Configuration["DB-Classification-InitialCatalog"];
+                builder.InitialCatalog = Configuration["DB-InitialCatalog"];
                 options.UseSqlServer(builder.ConnectionString);
             });
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ClassificationAppBackend", Version = "v1" });
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
             });
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -64,9 +67,12 @@ namespace ClassificationAppBackend
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ClassificationAppBackend v1"));
             }
+            app.UseSwagger();
+            app.UseSwaggerUI(c => {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "ClassificationAppBackend v1");
+                c.RoutePrefix = string.Empty;
+            });
 
             app.UseHttpsRedirection();
 

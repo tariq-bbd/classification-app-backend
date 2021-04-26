@@ -27,6 +27,9 @@ namespace ClassificationAppBackend.Controllers
             
         }
 
+        /// <summary>
+        /// Adds Stats for stroke
+        /// </summary>
         [HttpGet]
         [Route("all")]
         public ActionResult<HeartFailureDataModel> GetAllHeartFailureData()
@@ -34,6 +37,9 @@ namespace ClassificationAppBackend.Controllers
             return Ok(_repoHeartFailureData.GetAll());
         }
 
+        /// <summary>
+        /// Adds Stats for heart failure
+        /// </summary>
         [HttpPost]
         [Route("add")]
         public ActionResult<HeartFailureDataModel> AddHeartFailureData(HeartFailureDataModel heartFailureData)
@@ -42,6 +48,12 @@ namespace ClassificationAppBackend.Controllers
             return Ok(heartFailureData);
         }
 
+
+        /// <summary>
+        /// Gets Stats for heart failure
+        /// </summary>
+        /// <param name="chest_pain_l"></param>
+        /// <param name="cholestrol_l"></param>
         [HttpGet]
         [Route("heart_failure/{chest_pain_l}/{cholestrol_l}")]
         public ActionResult<HeartFailureReturnModel> GetStatsForHeartFailure(int chest_pain_l, int cholestrol_l) {
@@ -55,6 +67,11 @@ namespace ClassificationAppBackend.Controllers
             return Ok(res);
         }
 
+
+        /// <summary>
+        /// Gets Stats for stroke
+        /// </summary>
+        /// <param name="bmi"></param>
         [HttpGet]
         [Route("stroke/{bmi}")]
         public ActionResult<StrokeReturnModel> GetStatsForStroke(double bmi) {
@@ -69,6 +86,11 @@ namespace ClassificationAppBackend.Controllers
             return Ok(res);
         }
 
+
+        /// <summary>
+        /// Gets n records for stroke
+        /// </summary>
+        /// <param name="numOfRecords"></param>
         [HttpGet]
         [Route("records/stroke/{numOfRecords}")]
         public ActionResult<StrokeDataModel> GetRecordsForStroke(int numOfRecords) {
@@ -76,6 +98,10 @@ namespace ClassificationAppBackend.Controllers
             return Ok(strokeData.OrderByDescending(o => o).Take(numOfRecords));
         }
 
+        /// <summary>
+        /// Gets n records for heart disease
+        /// </summary>
+        /// <param name="numOfRecords"></param>
         [HttpGet]
         [Route("records/heartFailure/{numOfRecords}")]
         public ActionResult<HeartFailureDataModel> GetRecordsForHeartFailure(int numOfRecords) {
