@@ -66,22 +66,19 @@ namespace ClassificationAppBackend
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
+            app.UseDeveloperExceptionPage();
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
             {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c =>
-                {
-                    #if DEBUG
-                        // For Debug in Kestrel
-                        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Web API V1");
-                    #else
-                        // To deploy on IIS
-                        c.SwaggerEndpoint("/webapi/swagger/v1/swagger.json", "Web API V1");
-                    #endif
-                    c.RoutePrefix = string.Empty;
-                });
-            }
+                #if DEBUG
+                    // For Debug in Kestrel
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Web API V1");
+                #else
+                    // To deploy on IIS
+                    c.SwaggerEndpoint("/webapi/swagger/v1/swagger.json", "Web API V1");
+                #endif
+                c.RoutePrefix = string.Empty;
+            });
 
             app.UseHttpsRedirection();
 
