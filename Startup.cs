@@ -35,6 +35,7 @@ namespace ClassificationAppBackend
         {
             services.AddScoped<IRepoPatient,DbRepoPatient>();
             services.AddScoped<IRepoStroke,DbRepoStroke>();
+            services.AddScoped<IRepoStrokeData,DbRepoStrokeData>();
             services.AddScoped<IRepoHeartFailure, DbRepoHeartFailure>();
             services.AddScoped<IRepoHeartFailureData, DbRepoHeartFailureData>();
 
