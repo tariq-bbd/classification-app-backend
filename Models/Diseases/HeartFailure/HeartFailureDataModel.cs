@@ -26,7 +26,7 @@ namespace ClassificationAppBackend.Models.Diseases.HeartFailure
         [Required]
         public bool ExerciseAngina { get; set; } // all with it
         [Required]
-        public float Oldpeak { get; set; }
+        public float OldPeak { get; set; }
         [Required]
         public int StSlope { get; set; }
         [Required]
