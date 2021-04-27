@@ -111,5 +111,49 @@ namespace ClassificationAppBackend.Controllers
             return Ok(heartFailureData.OrderByDescending(o => o.Id).Take(numOfRecords).ToList());
         }
 
+        /// <summary>
+        /// Gets n records for stroke where the user is male
+        /// </summary>
+        /// <param name="numOfRecords"></param>
+        [HttpGet]
+        [Route("records/strokeMale/{numOfRecords}")]
+        public ActionResult<List<StrokeDataModel>> GetMaleRecordsForStroke(int numOfRecords) {
+            IEnumerable<StrokeDataModel> strokeData = (IEnumerable<StrokeDataModel>)_repoStrokeData.GetAll();
+            return Ok(strokeData.Where(o => o.Gender.Equals("Male")).OrderByDescending(o => o.Id).Take(numOfRecords).ToList());
+        }
+
+        /// <summary>
+        /// Gets n records for heart disease where the user is male
+        /// </summary>
+        /// <param name="numOfRecords"></param>
+        [HttpGet]
+        [Route("records/heartFailureMale/{numOfRecords}")]
+        public ActionResult<List<HeartFailureDataModel>> GetMaleRecordsForHeartFailure(int numOfRecords) {
+            IEnumerable<HeartFailureDataModel> heartFailureData = (IEnumerable<HeartFailureDataModel>)_repoHeartFailureData.GetAll();
+            return Ok(heartFailureData.Where(o => o.Sex.Equals("Male")).OrderByDescending(o => o.Id).Take(numOfRecords).ToList());
+        }
+
+        /// <summary>
+        /// Gets n records for stroke where the user is female
+        /// </summary>
+        /// <param name="numOfRecords"></param>
+        [HttpGet]
+        [Route("records/strokeFemale/{numOfRecords}")]
+        public ActionResult<List<StrokeDataModel>> GetFemaleRecordsForStroke(int numOfRecords) {
+            IEnumerable<StrokeDataModel> strokeData = (IEnumerable<StrokeDataModel>)_repoStrokeData.GetAll();
+            return Ok(strokeData.Where(o => o.Gender.Equals("Female")).OrderByDescending(o => o.Id).Take(numOfRecords).ToList());
+        }
+
+        /// <summary>
+        /// Gets n records for heart disease where the user is female
+        /// </summary>
+        /// <param name="numOfRecords"></param>
+        [HttpGet]
+        [Route("records/heartFailureFemale/{numOfRecords}")]
+        public ActionResult<List<HeartFailureDataModel>> GetFemaleRecordsForHeartFailure(int numOfRecords) {
+            IEnumerable<HeartFailureDataModel> heartFailureData = (IEnumerable<HeartFailureDataModel>)_repoHeartFailureData.GetAll();
+            return Ok(heartFailureData.Where(o => o.Sex.Equals("Female")).OrderByDescending(o => o.Id).Take(numOfRecords).ToList());
+        }
+
     }
 }
