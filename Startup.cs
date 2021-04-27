@@ -70,7 +70,8 @@ namespace ClassificationAppBackend
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/api/swagger/v1/swagger.json", "Web API V1");
+
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Web API V1");
 
                 c.RoutePrefix = string.Empty;
             });
