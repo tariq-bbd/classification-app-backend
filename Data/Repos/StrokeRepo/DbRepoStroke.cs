@@ -25,7 +25,7 @@ namespace ClassificationAppBackend.Data.Repos.StrokeRepo
                 Age = strokePredictionModel.Age,
                 AverageGlucoseLevel = (float)strokePredictionModel.AverageGlucoseLevel,
                 BMI = (float)strokePredictionModel.BMI,
-                EverMarried = strokePredictionModel.EverMarried == "Yes" ? true : false,
+                EverMarried = strokePredictionModel.EverMarried,
                 Gender = strokePredictionModel.Gender,
                 HasHeartDisease = strokePredictionModel.HasHeartDisease,
                 HasHypertension = strokePredictionModel.HasHeartDisease,
