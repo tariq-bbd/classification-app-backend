@@ -39,7 +39,7 @@ namespace ClassificationAppBackend.Data.Repos.StrokeRepo
             strokePredictionModel.StrokePredictionResult = (int)(prediction.Score[^1] * 100);
             _context.PredictionsStroke.Add(strokePredictionModel);
             _context.SaveChanges();
-            return new PredictionModel{PredictionResult = prediction.Score[^1]};
+            return new PredictionModel{PredictionResult = (int)(prediction.Score[^1] * 100)};
         }
 
         public IEnumerable<StrokePredictionModel> GetXRecords(int x)

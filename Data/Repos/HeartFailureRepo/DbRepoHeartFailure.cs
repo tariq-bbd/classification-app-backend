@@ -45,7 +45,7 @@ namespace ClassificationAppBackend.Data.Repos.HeartFailureRepo
             heartFailurePredictionModel.HeartFailurePredictionResult = (int)(prediction.Score[^1] * 100);
             _context.PredictHeartFailure.Add(heartFailurePredictionModel);
             _context.SaveChanges();
-            return new PredictionModel{PredictionResult = prediction.Score[^1]};
+            return new PredictionModel{PredictionResult = (int)(prediction.Score[^1] * 100)};
         }
     }
 }
