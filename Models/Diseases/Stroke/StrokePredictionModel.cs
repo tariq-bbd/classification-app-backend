@@ -16,8 +16,7 @@ namespace ClassificationAppBackend.Models.Diseases.Stroke
         [Required]
         public int HasHeartDisease  { get; set; }
         [Required]
-        [MaxLength(250)]
-        public string EverMarried { get; set; }
+        public bool EverMarried { get; set; }
         [Required]
         [MaxLength(250)]
         public string WorkType { get; set; }
