@@ -39,21 +39,83 @@
             </summary>
             <param name="numOfRecords"></param>
         </member>
+        <member name="M:ClassificationAppBackend.Controllers.DataController.GetMaleRecordsForStroke(System.Int32)">
+            <summary>
+            Gets n records for stroke where the user is male
+            </summary>
+            <param name="numOfRecords"></param>
+        </member>
+        <member name="M:ClassificationAppBackend.Controllers.DataController.GetMaleRecordsForHeartFailure(System.Int32)">
+            <summary>
+            Gets n records for heart disease where the user is male
+            </summary>
+            <param name="numOfRecords"></param>
+        </member>
+        <member name="M:ClassificationAppBackend.Controllers.DataController.GetFemaleRecordsForStroke(System.Int32)">
+            <summary>
+            Gets n records for stroke where the user is female
+            </summary>
+            <param name="numOfRecords"></param>
+        </member>
+        <member name="M:ClassificationAppBackend.Controllers.DataController.GetFemaleRecordsForHeartFailure(System.Int32)">
+            <summary>
+            Gets n records for heart disease where the user is female
+            </summary>
+            <param name="numOfRecords"></param>
+        </member>
+        <member name="M:ClassificationAppBackend.Controllers.DataController.GetMaleStatsForStroke(System.Double)">
+            <summary>
+            Gets Stats for stroke where the user is male
+            </summary>
+            <param name="bmi"></param>
+        </member>
+        <member name="M:ClassificationAppBackend.Controllers.DataController.GetFemaleStatsForStroke(System.Double)">
+            <summary>
+            Gets Stats for stroke where the user is female
+            </summary>
+            <param name="bmi"></param>
+        </member>
+        <member name="M:ClassificationAppBackend.Controllers.DataController.GetMaleStatsForHeartFailure(System.Int32,System.Int32)">
+            <summary>
+            Gets Stats for heart failure where the user is male
+            </summary>
+            <param name="chest_pain_l"></param>
+            <param name="cholestrol_l"></param>
+        </member>
+        <member name="M:ClassificationAppBackend.Controllers.DataController.GetFemaleStatsForHeartFailure(System.Int32,System.Int32)">
+            <summary>
+            Gets Stats for heart failure where the user is female
+            </summary>
+            <param name="chest_pain_l"></param>
+            <param name="cholestrol_l"></param>
+        </member>
         <member name="M:ClassificationAppBackend.Controllers.HeartFailureController.GetPredictionResult(ClassificationAppBackend.DTO.HeartFailurePredictionDTO)">
             <summary>
             Predict if a person is likely to have heart failure
             </summary>
         </member>
-        <member name="M:ClassificationAppBackend.Controllers.PatientController.GetPatientById(System.Int32)">
+        <member name="M:ClassificationAppBackend.Controllers.HeartFailureController.GetRecordsForHeartFailure(System.Int32)">
             <summary>
-            Gets a patient by ID
+            Gets n records for heart Failure
             </summary>
-            <param name="id"></param>
+            <param name="numOfRecords"></param>
         </member>
         <member name="M:ClassificationAppBackend.Controllers.StrokeController.GetPredictionResult(ClassificationAppBackend.DTO.StrokePredictionDTO)">
             <summary>
             Predict if a person is likely to have a stroke
             </summary>
+        </member>
+        <member name="M:ClassificationAppBackend.Controllers.StrokeController.GetRecordsForHeartFailure(System.Int32)">
+            <summary>
+            Gets n records for heart Failure
+            </summary>
+            <param name="numOfRecords"></param>
+        </member>
+        <member name="M:ClassificationAppBackend.Controllers.UserController.GetUserById(System.Int32)">
+            <summary>
+            Gets a User by ID
+            </summary>
+            <param name="id"></param>
         </member>
     </members>
 </doc>
