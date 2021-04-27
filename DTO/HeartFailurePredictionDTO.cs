@@ -30,8 +30,5 @@ namespace ClassificationAppBackend.DTO
         public float Oldpeak { get; set; }
         [Required]
         public float ST_slope { get; set; }
-        [Required]
-        [MaxLength(250)]
-        public string Target { get; set; }
     }
 }
