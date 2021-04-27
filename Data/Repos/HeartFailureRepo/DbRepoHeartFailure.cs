@@ -9,10 +9,12 @@ namespace ClassificationAppBackend.Data.Repos.HeartFailureRepo
     public class DbRepoHeartFailure : IRepoHeartFailure
     {
         private readonly IMapper _mapper;
+        private readonly ClassifcatiionAppDbContext _context;
 
-        public DbRepoHeartFailure(IMapper mapper)
+        public DbRepoHeartFailure(IMapper mapper, ClassifcatiionAppDbContext context)
         {
             _mapper = mapper;
+            _context = context;
         }
         public PredictionModel Predict(HeartFailurePredictionModel heartFailurePredictionModel)
         {
@@ -30,8 +32,10 @@ namespace ClassificationAppBackend.Data.Repos.HeartFailureRepo
                 Oldpeak = heartFailurePredictionModel.Oldpeak,
                 ST_slope = heartFailurePredictionModel.ST_slope,
             };
-
             var prediction = ConsumeModel.Predict(modelInput);
+            heartFailurePredictionModel.HeartFailurePredictionResult = (int)(prediction.Score[^1] * 100);
+            _context.PredictHeartFailure.Add(heartFailurePredictionModel);
+            _context.SaveChanges();
             return new PredictionModel{PredictionResult = prediction.Score[^1]};
         }
     }

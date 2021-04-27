@@ -9,10 +9,12 @@ namespace ClassificationAppBackend.Data.Repos.StrokeRepo
     public class DbRepoStroke : IRepoStroke
     {
         private readonly IMapper _mapper;
+        private readonly ClassifcatiionAppDbContext _context;
 
-        public DbRepoStroke(IMapper mapper)
+        public DbRepoStroke(IMapper mapper, ClassifcatiionAppDbContext context)
         {
             _mapper = mapper;
+            _context = context;
         }
         public PredictionModel Predict(StrokePredictionModel strokePredictionModel)
         {
@@ -32,6 +34,9 @@ namespace ClassificationAppBackend.Data.Repos.StrokeRepo
             };
 
             var prediction = ConsumeModel.Predict(modelInput);
+            strokePredictionModel.StrokePredictionResult = (int)(prediction.Score[^1] * 100);
+            _context.PredictionsStroke.Add(strokePredictionModel);
+            _context.SaveChanges();
             return new PredictionModel{PredictionResult = prediction.Score[^1]};
         }
     }
