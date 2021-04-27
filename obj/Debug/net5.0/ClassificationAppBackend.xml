@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ClassificationAppBackend</name>
+    </assembly>
+    <members>
+        <member name="M:ClassificationAppBackend.Controllers.DataController.GetAllHeartFailureData">
+            <summary>
+            Adds Stats for stroke
+            </summary>
+        </member>
+        <member name="M:ClassificationAppBackend.Controllers.DataController.AddHeartFailureData(ClassificationAppBackend.Models.Diseases.HeartFailure.HeartFailureDataModel)">
+            <summary>
+            Adds Stats for heart failure
+            </summary>
+        </member>
+        <member name="M:ClassificationAppBackend.Controllers.DataController.GetStatsForHeartFailure(System.Int32,System.Int32)">
+            <summary>
+            Gets Stats for heart failure
+            </summary>
+            <param name="chest_pain_l"></param>
+            <param name="cholestrol_l"></param>
+        </member>
+        <member name="M:ClassificationAppBackend.Controllers.DataController.GetStatsForStroke(System.Double)">
+            <summary>
+            Gets Stats for stroke
+            </summary>
+            <param name="bmi"></param>
+        </member>
+        <member name="M:ClassificationAppBackend.Controllers.DataController.GetRecordsForStroke(System.Int32)">
+            <summary>
+            Gets n records for stroke
+            </summary>
+            <param name="numOfRecords"></param>
+        </member>
+        <member name="M:ClassificationAppBackend.Controllers.DataController.GetRecordsForHeartFailure(System.Int32)">
+            <summary>
+            Gets n records for heart disease
+            </summary>
+            <param name="numOfRecords"></param>
+        </member>
+        <member name="M:ClassificationAppBackend.Controllers.HeartFailureController.GetPredictionResult(ClassificationAppBackend.DTO.HeartFailurePredictionDTO)">
+            <summary>
+            Predict if a person is likely to have heart failure
+            </summary>
+        </member>
+        <member name="M:ClassificationAppBackend.Controllers.PatientController.GetPatientById(System.Int32)">
+            <summary>
+            Gets a patient by ID
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:ClassificationAppBackend.Controllers.StrokeController.GetPredictionResult(ClassificationAppBackend.DTO.StrokePredictionDTO)">
+            <summary>
+            Predict if a person is likely to have a stroke
+            </summary>
+        </member>
+    </members>
+</doc>

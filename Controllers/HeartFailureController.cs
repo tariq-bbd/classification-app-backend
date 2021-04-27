@@ -4,7 +4,8 @@ using ClassificationAppBackend.DTO;
 using ClassificationAppBackend.Models;
 using ClassificationAppBackend.Models.Diseases.HeartFailure;
 using Microsoft.AspNetCore.Mvc;
-using Swashbuckle.Examples;
+using Swashbuckle.AspNetCore.Filters;
+
 
 namespace ClassificationAppBackend.Controllers
 {

@@ -7,8 +7,7 @@ using ClassificationAppBackend.Models.Diseases.Stroke;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
-using Swashbuckle.Examples;
-using Swashbuckle.AspNetCore.Swagger;
+using Swashbuckle.AspNetCore.Filters;
 
 
 namespace ClassificationAppBackend.Controllers
@@ -30,7 +29,7 @@ namespace ClassificationAppBackend.Controllers
         }
 
         /// <summary>
-        /// Adds Stats for stroke
+        /// Gets Stats for heart failure
         /// </summary>
         [HttpGet]
         [Route("all")]
