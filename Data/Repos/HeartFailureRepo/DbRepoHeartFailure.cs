@@ -30,14 +30,14 @@ namespace ClassificationAppBackend.Data.Repos.HeartFailureRepo
             ClassificationModelInput modelInput = new ClassificationModelInput
             {
                 Age = heartFailurePredictionModel.Age,
-                Sex = heartFailurePredictionModel.Sex,
+                Sex = heartFailurePredictionModel.Sex.Equals("Male") ? 1:0,
                 Chest_pain_type = heartFailurePredictionModel.Chest_pain_type,
                 Resting_bp_s = heartFailurePredictionModel.Resting_bp_s,
                 Cholesterol = heartFailurePredictionModel.Cholesterol,
-                Fasting_blood_sugar = heartFailurePredictionModel.Fasting_blood_sugar,
-                Resting_ecg = heartFailurePredictionModel.Resting_ecg,
+                Fasting_blood_sugar = float.Parse(heartFailurePredictionModel.Fasting_blood_sugar),
+                Resting_ecg = float.Parse(heartFailurePredictionModel.Resting_ecg),
                 Max_heart_rate = heartFailurePredictionModel.Max_heart_rate,
-                Exercise_angina = heartFailurePredictionModel.Exercise_angina,
+                Exercise_angina = float.Parse(heartFailurePredictionModel.Exercise_angina),
                 Oldpeak = heartFailurePredictionModel.Oldpeak,
                 ST_slope = heartFailurePredictionModel.ST_slope,
             };

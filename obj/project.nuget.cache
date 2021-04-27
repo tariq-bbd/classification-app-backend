@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "1WAHDEn/hWAGXi8ux04vJS7rmr/WrNaZnK9PMMBeJP2Nx3UyPZPrRFVhEY0JFX8Ft30T/RhpBaVEsHf6B+pjIA==",
+  "dgSpecHash": "aq+VhLSGhgP4/z8shr2mRr4low1MQx/emWQR71kQhpmyiJczcIqmGzZd2O/8iA6xVSEhGqHUSpZivUgo2GQmQA==",
   "success": true,
   "projectFilePath": "D:\\Dev\\classification-app-backend\\ClassificationAppBackend.csproj",
   "expectedPackageFiles": [
@@ -43,6 +43,7 @@
     "C:\\Users\\bbdnet2312\\.nuget\\packages\\microsoft.ml\\1.5.5\\microsoft.ml.1.5.5.nupkg.sha512",
     "C:\\Users\\bbdnet2312\\.nuget\\packages\\microsoft.ml.cpumath\\1.5.5\\microsoft.ml.cpumath.1.5.5.nupkg.sha512",
     "C:\\Users\\bbdnet2312\\.nuget\\packages\\microsoft.ml.dataview\\1.5.5\\microsoft.ml.dataview.1.5.5.nupkg.sha512",
+    "C:\\Users\\bbdnet2312\\.nuget\\packages\\microsoft.ml.fasttree\\1.5.5\\microsoft.ml.fasttree.1.5.5.nupkg.sha512",
     "C:\\Users\\bbdnet2312\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\bbdnet2312\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

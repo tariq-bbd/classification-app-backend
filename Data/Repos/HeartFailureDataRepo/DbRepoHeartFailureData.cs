@@ -14,6 +14,7 @@ namespace ClassificationAppBackend.Data.Repos.HeartFailureDataRepo
         public DbRepoHeartFailureData(ClassifcatiionAppDbContext context)
         {
             _context = context;
+         
         }
 
         public IEnumerable<HeartFailureDataModel>  GetAll() {
