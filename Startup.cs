@@ -54,8 +54,8 @@ namespace ClassificationAppBackend
             {
                 var builder = new SqlConnectionStringBuilder();
                 builder.DataSource = Configuration["DB-DataSource"];
-                builder.UserID =  "bbdazuresqlserveradmin";//Configuration["DB-UserID"];
-                builder.Password = "@DmB69SSXeWfge";//Configuration["DB-Password"];
+                builder.UserID =  Configuration["DB-UserID"];
+                builder.Password = Configuration["DB-Password"];
                 builder.InitialCatalog = Configuration["DB-Classification-InitialCatalog"];
                 options.UseSqlServer(builder.ConnectionString);
             });
