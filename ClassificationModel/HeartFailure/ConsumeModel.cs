@@ -14,7 +14,7 @@ namespace ClassificationModel.HeartFailure
     {
         private static Lazy<PredictionEngine<ClassificationModelInput, ClassificationModelOutput>> PredictionEngine = new Lazy<PredictionEngine<ClassificationModelInput, ClassificationModelOutput>>(CreatePredictionEngine);
 
-        public static string MLNetModelPath = Path.GetFullPath("MLModel.zip");
+        public static string MLNetModelPath = Path.GetFullPath("ClassificationModel\\HeartFailure\\MLModel.zip");
 
         // For more info on consuming ML.NET models, visit https://aka.ms/mlnet-consume
         // Method for consuming model in your app
