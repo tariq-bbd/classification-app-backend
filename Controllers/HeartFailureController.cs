@@ -5,6 +5,8 @@ using ClassificationAppBackend.Models;
 using ClassificationAppBackend.Models.Diseases.HeartFailure;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Filters;
+using System.Collections.Generic;
+using System.Linq;
 
 
 namespace ClassificationAppBackend.Controllers
@@ -35,6 +37,17 @@ namespace ClassificationAppBackend.Controllers
             var heartFailurePredictionModel = _mapper.Map<HeartFailurePredictionModel>(heartFailurePredictionDTO);
             var predictionResult = _repoHeartFailure.Predict(heartFailurePredictionModel);
             return Ok(predictionResult);
+        }
+
+        /// <summary>
+        /// Gets n records for heart Failure
+        /// </summary>
+        /// <param name="numOfRecords"></param>
+        [HttpGet]
+        [Route("records/heartFailure/{numOfRecords}")]
+        public ActionResult<List<HeartFailurePredictionModel>> GetRecordsForHeartFailure(int numOfRecords) {
+            IEnumerable<HeartFailurePredictionModel> heartFailurePredictData = _repoHeartFailure.GetXRecords(numOfRecords);
+            return Ok(heartFailurePredictData.ToList());
         }
     }
 }

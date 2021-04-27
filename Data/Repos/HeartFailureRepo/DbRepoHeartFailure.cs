@@ -3,6 +3,8 @@ using AutoMapper;
 using ClassificationAppBackend.Models;
 using ClassificationAppBackend.Models.Diseases.HeartFailure;
 using ClassificationModel.HeartFailure;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ClassificationAppBackend.Data.Repos.HeartFailureRepo
 {
@@ -16,6 +18,13 @@ namespace ClassificationAppBackend.Data.Repos.HeartFailureRepo
             _mapper = mapper;
             _context = context;
         }
+
+        public IEnumerable<HeartFailurePredictionModel> GetXRecords(int x)
+        {
+            return _context.PredictHeartFailure.OrderByDescending(o => o.Id).Take(x).ToList();
+            
+        }
+
         public PredictionModel Predict(HeartFailurePredictionModel heartFailurePredictionModel)
         {
             ClassificationModelInput modelInput = new ClassificationModelInput

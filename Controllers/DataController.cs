@@ -96,8 +96,8 @@ namespace ClassificationAppBackend.Controllers
         [HttpGet]
         [Route("records/stroke/{numOfRecords}")]
         public ActionResult<List<StrokeDataModel>> GetRecordsForStroke(int numOfRecords) {
-            IEnumerable<StrokeDataModel> strokeData = (IEnumerable<StrokeDataModel>)_repoStrokeData.GetAll();
-            return Ok(strokeData.OrderByDescending(o => o.Id).Take(numOfRecords).ToList());
+            IEnumerable<StrokeDataModel> strokeData = (IEnumerable<StrokeDataModel>)_repoStrokeData.GetXRecords(numOfRecords);
+            return Ok(strokeData.ToList());
         }
 
         /// <summary>
@@ -107,8 +107,8 @@ namespace ClassificationAppBackend.Controllers
         [HttpGet]
         [Route("records/heartFailure/{numOfRecords}")]
         public ActionResult<List<HeartFailureDataModel>> GetRecordsForHeartFailure(int numOfRecords) {
-            IEnumerable<HeartFailureDataModel> heartFailureData = (IEnumerable<HeartFailureDataModel>)_repoHeartFailureData.GetAll();
-            return Ok(heartFailureData.OrderByDescending(o => o.Id).Take(numOfRecords).ToList());
+            IEnumerable<HeartFailureDataModel> heartFailureData = (IEnumerable<HeartFailureDataModel>)_repoHeartFailureData.GetXRecords(numOfRecords);
+            return Ok(heartFailureData.ToList());
         }
 
         /// <summary>
@@ -118,8 +118,8 @@ namespace ClassificationAppBackend.Controllers
         [HttpGet]
         [Route("records/stroke/male/{numOfRecords}")]
         public ActionResult<List<StrokeDataModel>> GetMaleRecordsForStroke(int numOfRecords) {
-            IEnumerable<StrokeDataModel> strokeData = (IEnumerable<StrokeDataModel>)_repoStrokeData.GetAll();
-            return Ok(strokeData.Where(o => o.Gender.Equals("Male")).OrderByDescending(o => o.Id).Take(numOfRecords).ToList());
+            IEnumerable<StrokeDataModel> strokeData = (IEnumerable<StrokeDataModel>)_repoStrokeData.GetXRecordsByGender(numOfRecords, "Male");
+            return Ok(strokeData.ToList());
         }
 
         /// <summary>
@@ -129,8 +129,8 @@ namespace ClassificationAppBackend.Controllers
         [HttpGet]
         [Route("records/heartFailure/male/{numOfRecords}")]
         public ActionResult<List<HeartFailureDataModel>> GetMaleRecordsForHeartFailure(int numOfRecords) {
-            IEnumerable<HeartFailureDataModel> heartFailureData = (IEnumerable<HeartFailureDataModel>)_repoHeartFailureData.GetAll();
-            return Ok(heartFailureData.Where(o => o.Sex.Equals("Male")).OrderByDescending(o => o.Id).Take(numOfRecords).ToList());
+            IEnumerable<HeartFailureDataModel> heartFailureData = (IEnumerable<HeartFailureDataModel>)_repoHeartFailureData.GetXRecordsByGender(numOfRecords, "Male");
+            return Ok(heartFailureData.ToList());
         }
 
         /// <summary>
@@ -140,8 +140,8 @@ namespace ClassificationAppBackend.Controllers
         [HttpGet]
         [Route("records/stroke/female/{numOfRecords}")]
         public ActionResult<List<StrokeDataModel>> GetFemaleRecordsForStroke(int numOfRecords) {
-            IEnumerable<StrokeDataModel> strokeData = (IEnumerable<StrokeDataModel>)_repoStrokeData.GetAll();
-            return Ok(strokeData.Where(o => o.Gender.Equals("Female")).OrderByDescending(o => o.Id).Take(numOfRecords).ToList());
+            IEnumerable<StrokeDataModel> strokeData = (IEnumerable<StrokeDataModel>)_repoStrokeData.GetXRecordsByGender(numOfRecords, "Female");
+            return Ok(strokeData.ToList());
         }
 
         /// <summary>
@@ -151,8 +151,8 @@ namespace ClassificationAppBackend.Controllers
         [HttpGet]
         [Route("records/heartFailure/female/{numOfRecords}")]
         public ActionResult<List<HeartFailureDataModel>> GetFemaleRecordsForHeartFailure(int numOfRecords) {
-            IEnumerable<HeartFailureDataModel> heartFailureData = (IEnumerable<HeartFailureDataModel>)_repoHeartFailureData.GetAll();
-            return Ok(heartFailureData.Where(o => o.Sex.Equals("Female")).OrderByDescending(o => o.Id).Take(numOfRecords).ToList());
+            IEnumerable<HeartFailureDataModel> heartFailureData = (IEnumerable<HeartFailureDataModel>)_repoHeartFailureData.GetXRecordsByGender(numOfRecords, "Female");
+            return Ok(heartFailureData.ToList());
         }
 
                 /// <summary>
@@ -162,7 +162,7 @@ namespace ClassificationAppBackend.Controllers
         [HttpGet]
         [Route("stroke/male/{bmi}")]
         public ActionResult<StrokeReturnModel> GetMaleStatsForStroke(double bmi) {
-            IEnumerable<StrokeDataModel> strokeData = (IEnumerable<StrokeDataModel>)_repoStrokeData.GetAll().Where(o => o.Gender.Equals("Male"));
+            IEnumerable<StrokeDataModel> strokeData = (IEnumerable<StrokeDataModel>)_repoStrokeData.GetRecordsByGender("Male");
             int len = strokeData.Count();
             int hypertension = strokeData.Where(o => o.HasHypertension == true).Count();
             int heartDisease = strokeData.Where(o => o.HasHeartDisease == true).Count();
@@ -180,7 +180,7 @@ namespace ClassificationAppBackend.Controllers
         [HttpGet]
         [Route("stroke/female/{bmi}")]
         public ActionResult<StrokeReturnModel> GetFemaleStatsForStroke(double bmi) {
-            IEnumerable<StrokeDataModel> strokeData = (IEnumerable<StrokeDataModel>)_repoStrokeData.GetAll().Where(o => o.Gender.Equals("Female"));
+            IEnumerable<StrokeDataModel> strokeData = (IEnumerable<StrokeDataModel>)_repoStrokeData.GetRecordsByGender("Female");
             int len = strokeData.Count();
             int hypertension = strokeData.Where(o => o.HasHypertension == true).Count();
             int heartDisease = strokeData.Where(o => o.HasHeartDisease == true).Count();
@@ -199,7 +199,7 @@ namespace ClassificationAppBackend.Controllers
         [HttpGet]
         [Route("heart_failure/male/{chest_pain_l}/{cholestrol_l}")]
         public ActionResult<HeartFailureReturnModel> GetMaleStatsForHeartFailure(int chest_pain_l, int cholestrol_l) {
-            IEnumerable<HeartFailureDataModel> hearFailureData = (IEnumerable<HeartFailureDataModel>)_repoHeartFailureData.GetAll().Where(o => o.Sex.Equals("Male"));
+            IEnumerable<HeartFailureDataModel> hearFailureData = (IEnumerable<HeartFailureDataModel>)_repoHeartFailureData.GetRecordsByGender("Male");
             int len = hearFailureData.Count();
             int chest_pain = hearFailureData.Where(o => o.ChestPainType > chest_pain_l).Count();
             int cholestrol = hearFailureData.Where(o => o.Cholesterol > cholestrol_l).Count();
@@ -217,7 +217,7 @@ namespace ClassificationAppBackend.Controllers
         [HttpGet]
         [Route("heart_failure/female/{chest_pain_l}/{cholestrol_l}")]
         public ActionResult<HeartFailureReturnModel> GetFemaleStatsForHeartFailure(int chest_pain_l, int cholestrol_l) {
-            IEnumerable<HeartFailureDataModel> hearFailureData = (IEnumerable<HeartFailureDataModel>)_repoHeartFailureData.GetAll().Where(o => o.Sex.Equals("Female"));
+            IEnumerable<HeartFailureDataModel> hearFailureData = (IEnumerable<HeartFailureDataModel>)_repoHeartFailureData.GetRecordsByGender("Female");
             int len = hearFailureData.Count();
             int chest_pain = hearFailureData.Where(o => o.ChestPainType > chest_pain_l).Count();
             int cholestrol = hearFailureData.Where(o => o.Cholesterol > cholestrol_l).Count();

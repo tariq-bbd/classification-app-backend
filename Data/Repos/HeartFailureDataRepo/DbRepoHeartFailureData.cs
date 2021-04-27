@@ -28,9 +28,23 @@ namespace ClassificationAppBackend.Data.Repos.HeartFailureDataRepo
 
         public HeartFailureDataModel GetHeartFailureData(int id)
         {
-            return _context.HeartFailureData.FirstOrDefault(heartFailureRec => heartFailureRec.Id == id);
-            
+            return _context.HeartFailureData.Find(id);
+
         }
 
+        public IEnumerable<HeartFailureDataModel> GetXRecords(int x)
+        {
+            return _context.HeartFailureData.OrderByDescending(o => o.Id).Take(x).ToList();
+        }
+
+        public IEnumerable<HeartFailureDataModel> GetXRecordsByGender(int x, string sex)
+        {
+            return _context.HeartFailureData.Where(o => o.Sex == sex).OrderByDescending(o => o.Id).Take(x).ToList();
+        }
+
+        public IEnumerable<HeartFailureDataModel> GetRecordsByGender(string sex)
+        {
+            return _context.HeartFailureData.Where(o => o.Sex == sex).ToList();
+        }
     }
 }

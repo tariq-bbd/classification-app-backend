@@ -1,4 +1,6 @@
 using ClassificationAppBackend.Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ClassificationAppBackend.Data.Repos.UserRepo
 {

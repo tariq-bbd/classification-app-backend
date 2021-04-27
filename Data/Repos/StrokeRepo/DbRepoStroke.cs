@@ -3,6 +3,8 @@ using AutoMapper;
 using ClassificationAppBackend.Models;
 using ClassificationAppBackend.Models.Diseases.Stroke;
 using ClassificationModel.Stroke;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ClassificationAppBackend.Data.Repos.StrokeRepo
 {
@@ -38,6 +40,12 @@ namespace ClassificationAppBackend.Data.Repos.StrokeRepo
             _context.PredictionsStroke.Add(strokePredictionModel);
             _context.SaveChanges();
             return new PredictionModel{PredictionResult = prediction.Score[^1]};
+        }
+
+        public IEnumerable<StrokePredictionModel> GetXRecords(int x)
+        {
+            return _context.PredictionsStroke.OrderByDescending(o => o.Id).Take(x).ToList();
+            
         }
     }
 }

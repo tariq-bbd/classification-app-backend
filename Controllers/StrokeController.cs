@@ -5,6 +5,8 @@ using ClassificationAppBackend.Models;
 using ClassificationAppBackend.Models.Diseases.Stroke;
 using Microsoft.AspNetCore.Mvc; 
 using Swashbuckle.AspNetCore.Filters;
+using System.Collections.Generic;
+using System.Linq;
 
 
 namespace ClassificationAppBackend.Controllers
@@ -35,6 +37,17 @@ namespace ClassificationAppBackend.Controllers
             var strokePredictionModel = _mapper.Map<StrokePredictionModel>(strokePredictionDTO);
             var predictionResult = _repoStroke.Predict(strokePredictionModel);
             return Ok(predictionResult);
+        }
+
+                /// <summary>
+        /// Gets n records for heart Failure
+        /// </summary>
+        /// <param name="numOfRecords"></param>
+        [HttpGet]
+        [Route("records/heartFailure/{numOfRecords}")]
+        public ActionResult<List<StrokePredictionModel>> GetRecordsForHeartFailure(int numOfRecords) {
+            IEnumerable<StrokePredictionModel> heartFailurePredictData = _repoStroke.GetXRecords(numOfRecords);
+            return Ok(heartFailurePredictData.ToList());
         }
     }
 }

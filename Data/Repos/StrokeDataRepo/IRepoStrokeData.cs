@@ -9,6 +9,9 @@ namespace ClassificationAppBackend.Data.Repos.StrokeDataRepo
         IEnumerable<StrokeDataModel> GetAll();
         bool AddStokeData(StrokeDataModel stokeData);
         StrokeDataModel GetStrokeData(int id);
+        IEnumerable<StrokeDataModel> GetXRecords(int x);
+        IEnumerable<StrokeDataModel> GetXRecordsByGender(int x, string sex);
+        IEnumerable<StrokeDataModel> GetRecordsByGender(string sex);
 
     }
 }
