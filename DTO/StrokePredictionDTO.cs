@@ -13,7 +13,7 @@ namespace ClassificationAppBackend.DTO
         [Required]
         public int HasHeartDisease { get; set; }
         [Required]
-        public bool EverMarried { get; set; }
+        public int EverMarried { get; set; }
         [Required]
         [MaxLength(250)]
         public string WorkType { get; set; }
