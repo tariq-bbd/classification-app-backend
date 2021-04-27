@@ -95,7 +95,7 @@ namespace ClassificationAppBackend.Controllers
         /// <param name="numOfRecords"></param>
         [HttpGet]
         [Route("records/stroke/{numOfRecords}")]
-        public ActionResult<StrokeDataModel> GetRecordsForStroke(int numOfRecords) {
+        public ActionResult<List<StrokeDataModel>> GetRecordsForStroke(int numOfRecords) {
             IEnumerable<StrokeDataModel> strokeData = (IEnumerable<StrokeDataModel>)_repoStrokeData.GetAll();
             return Ok(strokeData.OrderByDescending(o => o.Id).Take(numOfRecords).ToList());
         }
@@ -106,7 +106,7 @@ namespace ClassificationAppBackend.Controllers
         /// <param name="numOfRecords"></param>
         [HttpGet]
         [Route("records/heartFailure/{numOfRecords}")]
-        public ActionResult<HeartFailureDataModel> GetRecordsForHeartFailure(int numOfRecords) {
+        public ActionResult<List<HeartFailureDataModel>> GetRecordsForHeartFailure(int numOfRecords) {
             IEnumerable<HeartFailureDataModel> heartFailureData = (IEnumerable<HeartFailureDataModel>)_repoHeartFailureData.GetAll();
             return Ok(heartFailureData.OrderByDescending(o => o.Id).Take(numOfRecords).ToList());
         }
