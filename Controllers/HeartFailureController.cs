@@ -29,7 +29,7 @@ namespace ClassificationAppBackend.Controllers
         /// <summary>
         /// Predict if a person is likely to have heart failure
         /// </summary>
-        [HttpGet]
+        [HttpPost]
         [Route("predict")]
         [SwaggerRequestExample(typeof(HeartFailurePredictionDTO), typeof(HeartFailurePredictionDTO))]
         public ActionResult<PredictionModel> GetPredictionResult(HeartFailurePredictionDTO heartFailurePredictionDTO)
