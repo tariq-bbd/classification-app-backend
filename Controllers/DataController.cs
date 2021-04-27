@@ -8,11 +8,12 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using Swashbuckle.AspNetCore.Filters;
-
+using Microsoft.AspNetCore.Cors;
 
 namespace ClassificationAppBackend.Controllers
 {
     [ApiController]
+    [EnableCors("MyPolicy")]
     [Route("api/data/heart_failure")]
     public class DataController : ControllerBase
     {

@@ -42,13 +42,21 @@ namespace ClassificationAppBackend
             services.AddScoped<IRepoHeartFailure, DbRepoHeartFailure>();
             services.AddScoped<IRepoHeartFailureData, DbRepoHeartFailureData>();
 
+             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+        {
+            builder.AllowAnyOrigin()
+                   .AllowAnyMethod()
+                   .AllowAnyHeader();
+        }));
+        
+
             services.AddDbContext<ClassifcatiionAppDbContext>(options =>
             {
                 var builder = new SqlConnectionStringBuilder();
                 builder.DataSource = Configuration["DB-DataSource"];
                 builder.UserID =  "bbdazuresqlserveradmin";//Configuration["DB-UserID"];
                 builder.Password = "@DmB69SSXeWfge";//Configuration["DB-Password"];
-                builder.InitialCatalog = Configuration["DB-InitialCatalog"];
+                builder.InitialCatalog = Configuration["DB-Classification-InitialCatalog"];
                 options.UseSqlServer(builder.ConnectionString);
             });
             services.AddControllers();
@@ -66,6 +74,7 @@ namespace ClassificationAppBackend
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+          
             app.UseDeveloperExceptionPage();
             app.UseSwagger();
             app.UseSwaggerUI(c =>
@@ -79,6 +88,7 @@ namespace ClassificationAppBackend
             app.UseHttpsRedirection();
 
             app.UseRouting();
+              app.UseCors("MyPolicy");
 
             app.UseAuthorization();
 

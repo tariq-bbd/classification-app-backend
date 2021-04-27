@@ -6,7 +6,7 @@
     <members>
         <member name="M:ClassificationAppBackend.Controllers.DataController.GetAllHeartFailureData">
             <summary>
-            Adds Stats for stroke
+            Gets Stats for heart failure
             </summary>
         </member>
         <member name="M:ClassificationAppBackend.Controllers.DataController.AddHeartFailureData(ClassificationAppBackend.Models.Diseases.HeartFailure.HeartFailureDataModel)">
