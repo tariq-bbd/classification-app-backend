@@ -3,6 +3,7 @@ using ClassificationAppBackend.Data.Repos.PatientRepo;
 using ClassificationAppBackend.DTO;
 using ClassificationAppBackend.Models;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.Examples;
 
 namespace ClassificationAppBackend.Controllers
 {
@@ -20,7 +21,11 @@ namespace ClassificationAppBackend.Controllers
         }
 
 
-        [HttpGet(Name="GetPatientById")]
+        /// <summary>
+        /// Gets a patient by ID
+        /// </summary>
+        /// <param name="id"></param>
+        [HttpGet]
         [Route("{id}")]
         public ActionResult<PatientModel> GetPatientById(int id)
         {
@@ -34,6 +39,7 @@ namespace ClassificationAppBackend.Controllers
 
         }
 
+        [SwaggerRequestExample(typeof(PatientDTO), typeof(PatientDTO))]
         [HttpPost]
         public ActionResult PostPatient(PatientDTO patientDTO)
         {

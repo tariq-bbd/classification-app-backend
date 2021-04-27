@@ -7,6 +7,8 @@ using ClassificationAppBackend.Models.Diseases.Stroke;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using Swashbuckle.Examples;
+using Swashbuckle.AspNetCore.Swagger;
 
 
 namespace ClassificationAppBackend.Controllers

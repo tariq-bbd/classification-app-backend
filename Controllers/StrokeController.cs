@@ -3,7 +3,8 @@ using ClassificationAppBackend.Data.Repos.StrokeRepo;
 using ClassificationAppBackend.DTO;
 using ClassificationAppBackend.Models;
 using ClassificationAppBackend.Models.Diseases.Stroke;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc; 
+using Swashbuckle.Examples;
 
 namespace ClassificationAppBackend.Controllers
 {
@@ -21,8 +22,13 @@ namespace ClassificationAppBackend.Controllers
             
         }
 
+
+        /// <summary>
+        /// Predict if a person is likely to have a stroke
+        /// </summary>
         [HttpPost]
         [Route("predict")]
+        [SwaggerRequestExample(typeof(StrokePredictionDTO), typeof(StrokePredictionDTO))]
         public ActionResult<PredictionModel> GetPredictionResult(StrokePredictionDTO strokePredictionDTO)
         {
             var strokePredictionModel = _mapper.Map<StrokePredictionModel>(strokePredictionDTO);

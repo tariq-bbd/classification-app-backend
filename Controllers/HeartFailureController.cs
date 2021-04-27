@@ -4,6 +4,7 @@ using ClassificationAppBackend.DTO;
 using ClassificationAppBackend.Models;
 using ClassificationAppBackend.Models.Diseases.HeartFailure;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.Examples;
 
 namespace ClassificationAppBackend.Controllers
 {
@@ -21,8 +22,13 @@ namespace ClassificationAppBackend.Controllers
             
         }
 
+        
+        /// <summary>
+        /// Predict if a person is likely to have heart failure
+        /// </summary>
         [HttpGet]
         [Route("predict")]
+        [SwaggerRequestExample(typeof(HeartFailurePredictionDTO), typeof(HeartFailurePredictionDTO))]
         public ActionResult<PredictionModel> GetPredictionResult(HeartFailurePredictionDTO heartFailurePredictionDTO)
         {
             var heartFailurePredictionModel = _mapper.Map<HeartFailurePredictionModel>(heartFailurePredictionDTO);
