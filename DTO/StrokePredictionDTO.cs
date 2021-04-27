@@ -24,7 +24,7 @@ namespace ClassificationAppBackend.DTO
         [Required]
         public double AverageGlucoseLevel { get; set; }
         [Required]
-        public double BMI { get; set; }
+        public int BMI { get; set; }
         [Required]
         [MaxLength(250)]
         public string SmokingStatus { get; set; }
