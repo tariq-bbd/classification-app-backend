@@ -14,7 +14,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Data.SqlClient;
-using ClassificationAppBackend.Data.Repos.PatientRepo;
+using ClassificationAppBackend.Data.Repos.UserRepo;
 using ClassificationAppBackend.Data.Repos.StrokeRepo;
 using ClassificationAppBackend.Data.Repos.StrokeDataRepo;
 using ClassificationAppBackend.Data.Repos.HeartFailureRepo;
@@ -36,7 +36,7 @@ namespace ClassificationAppBackend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IRepoPatient,DbRepoPatient>();
+            services.AddScoped<IRepoUser,DbRepoUser>();
             services.AddScoped<IRepoStroke,DbRepoStroke>();
             services.AddScoped<IRepoStrokeData,DbRepoStrokeData>();
             services.AddScoped<IRepoHeartFailure, DbRepoHeartFailure>();

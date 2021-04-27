@@ -11,7 +11,7 @@ namespace ClassificationAppBackend.Profiles
     {
         public AutoMapperProfiles()
         {
-            CreateMap<PatientDTO,PatientModel>();
+            CreateMap<UserDTO,UserModel>();
             CreateMap<StrokePredictionDTO,StrokePredictionModel>();
             CreateMap<HeartFailurePredictionDTO,HeartFailurePredictionModel>();    
         }

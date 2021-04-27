@@ -4,7 +4,7 @@ using ClassificationAppBackend.Models;
 
 namespace ClassificationAppBackend.DTO
 {
-    public class PatientDTO
+    public class UserDTO
     {
 
         [Required]

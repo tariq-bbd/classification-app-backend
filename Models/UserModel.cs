@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ClassificationAppBackend.Models
 {
-    public class PatientModel
+    public class UserModel
     {
         [Required]
         public int Id { get; set; }
