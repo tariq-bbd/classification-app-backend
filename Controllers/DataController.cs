@@ -14,7 +14,7 @@ namespace ClassificationAppBackend.Controllers
 {
     [ApiController]
     [EnableCors("MyPolicy")]
-    [Route("api/data/heart_failure")]
+    [Route("api/data")]
     public class DataController : ControllerBase
     {
         private readonly IRepoHeartFailureData _repoHeartFailureData;
@@ -82,7 +82,7 @@ namespace ClassificationAppBackend.Controllers
             int hypertension = strokeData.Where(o => o.HasHypertension == true).Count();
             int heartDisease = strokeData.Where(o => o.HasHeartDisease == true).Count();
             int highBMI = strokeData.Where(o => o.BMI >= bmi).Count();
-            int smokes = strokeData.Where(o => o.SmokingStatus != "never smoked" || o.SmokingStatus != "Unknown" ).Count();
+            int smokes = strokeData.Where(o => o.SmokingStatus != "never smoked" && o.SmokingStatus != "Unknown" ).Count();
             int stroke = strokeData.Where(o => o.Target == true).Count();
             StrokeReturnModel res = new StrokeReturnModel(len, hypertension, heartDisease, highBMI, smokes, stroke);
             return Ok(res);
@@ -97,7 +97,7 @@ namespace ClassificationAppBackend.Controllers
         [Route("records/stroke/{numOfRecords}")]
         public ActionResult<StrokeDataModel> GetRecordsForStroke(int numOfRecords) {
             IEnumerable<StrokeDataModel> strokeData = (IEnumerable<StrokeDataModel>)_repoStrokeData.GetAll();
-            return Ok(strokeData.OrderByDescending(o => o).Take(numOfRecords));
+            return Ok(strokeData.OrderByDescending(o => o).Take(numOfRecords).ToList());
         }
 
         /// <summary>
@@ -108,7 +108,7 @@ namespace ClassificationAppBackend.Controllers
         [Route("records/heartFailure/{numOfRecords}")]
         public ActionResult<HeartFailureDataModel> GetRecordsForHeartFailure(int numOfRecords) {
             IEnumerable<HeartFailureDataModel> heartFailureData = (IEnumerable<HeartFailureDataModel>)_repoHeartFailureData.GetAll();
-            return Ok(heartFailureData.OrderBy(o => o).Take(numOfRecords));
+            return Ok(heartFailureData.OrderBy(o => o).Take(numOfRecords).ToList());
         }
 
     }
